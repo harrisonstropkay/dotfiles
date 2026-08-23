@@ -1,12 +1,1 @@
-# Exclude pi agent files that are secret, machine-specific cache, or binaries.
-# (settings.json and models.json are tracked, encrypted.)
-.pi/agent/auth.json
-.pi/agent/models-store.json
-.pi/agent/sessions
-.pi/agent/bin
-
-# The age private key is never managed by chezmoi (copied manually per machine).
-.config/chezmoi/key.txt
-
-# Repo-only file (not a dotfile target).
 README.md

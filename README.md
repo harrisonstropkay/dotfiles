@@ -24,33 +24,28 @@ chezmoi init --apply harrisonstropkay/dotfiles
 Edit config files:
 
 ```sh
-chezmoi edit ~/.zshrc        # edit the source (decrypts if encrypted)
-chezmoi diff                 # preview what apply would change
-chezmoi apply                # render source → live $HOME
+chezmoi edit --apply ~/.vimrc
 ```
 
 Publish to GitHub:
 
 ```sh
-chezmoi git add -A
-chezmoi git commit -m "…"
-chezmoi git push
+chezmoi git [add/commit/push]
 ```
 
 Pull and apply in one command:
 
 ```sh
-chezmoi update               # = git pull + apply
+chezmoi update
 ```
 
 Add an existing live file to chezmoi management:
 
 ```sh
-chezmoi add ~/.vimrc                # plain
-chezmoi add --encrypt ~/.vimrc      # encrypted
+chezmoi add [--encrypt] ~/.vimrc
 ```
 
-Stop managing a file:
+Remove an existing file from chezmoi management:
 
 ```sh
 chezmoi forget ~/.vimrc
