@@ -1,0 +1,9 @@
+# .bash_profile
+
+# Silence macOS's "default interactive shell is now zsh" nag in bash 3.2.
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+    . ~/.bashrc
+fi
