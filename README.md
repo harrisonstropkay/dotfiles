@@ -3,22 +3,14 @@
 My dotfiles, managed with [chezmoi](https://chezmoi.io) and encrypted with
 [age](https://age-encryption.org).
 
-## What's tracked
-
-- `~/.zshrc`
-- `~/.gitconfig`
-- `~/.pi/agent/models.json`
-- `~/.pi/agent/settings.json`
-- `~/.tmux.conf`
-
 ## Usage
 
 Bootstrap on a new machine:
 
 ```sh
-brew install chezmoi age
-# Copy the age private key to ~/.config/chezmoi/key.txt
-chezmoi init --apply harrisonstropkay/dotfiles
+brew install chezmoi age # Step 1
+# Step 2: Copy the age private key to ~/.config/chezmoi/key.txt
+chezmoi init --apply harrisonstropkay/dotfiles  # Step 3
 ```
 
 Edit config files:
