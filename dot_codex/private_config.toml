@@ -5,3 +5,12 @@ approvals_reviewer = "user"
 
 [projects."/"]
 trust_level = "trusted"
+
+[projects."/home/hstropka/refactory-midstream"]
+trust_level = "trusted"
+
+[projects."/home/hstropka/.local/share/chezmoi"]
+trust_level = "trusted"
+
+[projects."/home/hstropka"]
+trust_level = "trusted"
