@@ -1,0 +1,22 @@
+{
+  "cleanupPeriodDays": 3650,
+  "permissions": {
+    "defaultMode": "bypassPermissions",
+    "additionalDirectories": [
+      "/",
+      "/home"
+    ]
+  },
+  "model": "opus",
+  "effortLevel": "high",
+  "tui": "fullscreen",
+  "skipDangerousModePermissionPrompt": true,
+  "theme": "auto",
+  "editorMode": "normal",
+  "verbose": false,
+  "fileCheckpointingEnabled": true,
+  "statusLine": {
+    "type": "command",
+    "command": "python3 ~/.claude/statusline.py"
+  }
+}
