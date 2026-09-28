@@ -7,7 +7,11 @@
       "/home"
     ]
   },
-  "model": "opus",
+  "model": "claude-opus-4-8",
+  "statusLine": {
+    "type": "command",
+    "command": "python3 ~/.claude/statusline.py"
+  },
   "effortLevel": "high",
   "tui": "fullscreen",
   "skipDangerousModePermissionPrompt": true,
@@ -15,8 +19,28 @@
   "editorMode": "normal",
   "verbose": false,
   "fileCheckpointingEnabled": true,
-  "statusLine": {
-    "type": "command",
-    "command": "python3 ~/.claude/statusline.py"
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$HOME\"'/.tmux/plugins/tmux-assistant-resurrect/hooks/claude-session-track.sh'"
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$HOME\"'/.tmux/plugins/tmux-assistant-resurrect/hooks/claude-session-cleanup.sh'"
+          }
+        ]
+      }
+    ]
   }
 }
