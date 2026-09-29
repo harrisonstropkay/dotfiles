@@ -1,24 +1,19 @@
-# tmux plugins — pinned to specific commits for reproducibility.
-# chezmoi downloads and extracts these on `chezmoi apply` / `chezmoi update`.
+# tmux plugins — cloned into ~/.tmux/plugins on `chezmoi apply` / `chezmoi update`.
 # These are NOT managed via TPM; ~/.tmux.conf loads each by explicit path.
-#
-# To bump a plugin: update its commit SHA below, then `chezmoi apply`.
-# (Find the latest at https://github.com/<owner>/<repo>/commits)
+# Tracks each repo's default branch; refreshed at most weekly (chezmoi pulls
+# on apply once the period elapses, or immediately with `chezmoi apply --refresh-externals`).
 
 [".tmux/plugins/tmux-resurrect"]
-    type = "archive"
-    url = "https://github.com/tmux-plugins/tmux-resurrect/archive/cff343cf9e81983d3da0c8562b01616f12e8d548.tar.gz"
-    stripComponents = 1
-    refreshPeriod = "0"
+    type = "git-repo"
+    url = "https://github.com/tmux-plugins/tmux-resurrect.git"
+    refreshPeriod = "168h"
 
 [".tmux/plugins/tmux-continuum"]
-    type = "archive"
-    url = "https://github.com/tmux-plugins/tmux-continuum/archive/0698e8f4b17d6454c71bf5212895ec055c578da0.tar.gz"
-    stripComponents = 1
-    refreshPeriod = "0"
+    type = "git-repo"
+    url = "https://github.com/tmux-plugins/tmux-continuum.git"
+    refreshPeriod = "168h"
 
 [".tmux/plugins/tmux-assistant-resurrect"]
-    type = "archive"
-    url = "https://github.com/timvw/tmux-assistant-resurrect/archive/c3895253bf3445548c8d007eb961ab8926de6226.tar.gz"
-    stripComponents = 1
-    refreshPeriod = "0"
+    type = "git-repo"
+    url = "https://github.com/timvw/tmux-assistant-resurrect.git"
+    refreshPeriod = "168h"
