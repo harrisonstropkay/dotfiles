@@ -5,13 +5,19 @@ My dotfiles, managed with [chezmoi](https://chezmoi.io) and encrypted with
 
 ## Usage
 
-Bootstrap on a new machine:
+Bootstrap on a new machine (macOS or Linux):
 
 ```sh
-brew install chezmoi age # Step 1
-# Step 2: Copy the age private key to ~/.config/chezmoi/key.txt
-chezmoi init --apply harrisonstropkay/dotfiles  # Step 3
+# Step 1: copy the age private key to ~/.config/chezmoi/key.txt
+# Step 2: one command — installs chezmoi, then (via a run-before script)
+#         Homebrew + age/jq/tmux, fetches the pinned tmux plugins, and applies:
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply harrisonstropkay/dotfiles
 ```
+
+The age key in step 1 is the only manual step (it's a secret, so it can't live
+in the repo). Everything else — Homebrew, `age`/`jq`/`tmux`
+(`.chezmoidata/packages.yaml`), and the tmux plugins under `~/.tmux/plugins`
+(`.chezmoiexternal.toml`) — is installed automatically by step 2.
 
 Edit config files:
 

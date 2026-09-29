@@ -1,0 +1,9 @@
+# Packages installed on `chezmoi apply` via
+# .chezmoiscripts/run_onchange_before_install-packages.sh.tmpl (Homebrew).
+# Edit this list and re-apply to install/update; the script re-runs only when
+# this list changes.
+packages:
+  common:
+    - age   # required to decrypt this repo's encrypted files
+    - jq    # required by tmux-assistant-resurrect save/restore scripts
+    - tmux
