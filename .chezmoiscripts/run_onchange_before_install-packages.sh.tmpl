@@ -1,0 +1,21 @@
+#!/bin/bash
+# Install packages via Homebrew (works on macOS and Linux).
+# Runs before the rest of `chezmoi apply`, so `age` exists before encrypted
+# files are decrypted. Re-runs only when the package list below changes.
+set -euo pipefail
+
+# packages: {{ .packages.common | toJson }}
+
+# Ensure Homebrew is installed and on PATH.
+if ! command -v brew >/dev/null 2>&1; then
+    NONINTERACTIVE=1 /bin/bash -c \
+        "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+for brew_bin in /opt/homebrew/bin/brew /usr/local/bin/brew /home/linuxbrew/.linuxbrew/bin/brew; do
+    if [ -x "$brew_bin" ]; then
+        eval "$("$brew_bin" shellenv)"
+        break
+    fi
+done
+
+brew install {{ range .packages.common }}{{ . }} {{ end }}
